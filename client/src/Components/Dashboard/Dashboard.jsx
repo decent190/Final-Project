@@ -3,7 +3,7 @@ import { Player } from "@lottiefiles/react-lottie-player";
 import animationData from '../../assets/animation.png';
 import { useEffect, useState } from 'react';
 import imagegal from '../../assets/imagegal.png';
-import frame from '../../assets/frame.png';
+// import frame from '../../assets/frame.png';
 import percent from '../../assets/percent.png';
 import image4 from '../../assets/image 4.png';
 import image5 from '../../assets/image 5.png';
