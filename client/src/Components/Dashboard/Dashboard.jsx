@@ -3,7 +3,7 @@ import { Player } from "@lottiefiles/react-lottie-player";
 import animationData from '../../assets/animation.png';
 import { useEffect, useState } from 'react';
 import imagegal from '../../assets/imagegal.png';
-// import frame from '../../assets/frame.png';
+import javascript from '../../assets/javascript.png';
 import percent from '../../assets/percent.png';
 import image4 from '../../assets/image 4.png';
 import image5 from '../../assets/image 5.png';
@@ -119,7 +119,7 @@ const Dashboard = () => {
 
                 <div className='' style={{ borderRadius: "8px", outline: "1px solid gray" }}>
                   <span className='d-flex mt-4'>
-                    <img src={frame} alt="Frame" className="img-fluid p-3 h-50 w-50 mx-auto" />
+                    <img src={javascript} alt="Frame" className="img-fluid p-3 h-50 w-50 mx-auto" />
                     <p className='ms-3 mt-2 fs-5'>
                       JavaScript Basics: Responsiveness into multiple lines of code. <br />
                       6/10 Lessons | 50% <br />
