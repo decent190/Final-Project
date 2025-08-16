@@ -67,7 +67,7 @@ return (
                 {success && <p className="text-success">{success}</p>}
                 <button type="submit" className="btn btn-dark w-100 mt-3">Login</button>
                 <div className='mt-3 text-center'>
-                    <p>Don’t have an acgcount? <Link to="/signup">Register</Link></p>
+                    <p>Don’t have an account? <Link to="/signup">Register</Link></p>
                 </div>
             </form>
         </div>
