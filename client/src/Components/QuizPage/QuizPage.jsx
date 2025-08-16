@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import imagegal from '../../assets/imagegal.png';
 
 const questions = [
@@ -115,9 +116,11 @@ const questions = [
 ];
 
 const QuizPage = () => {
+  const navigate = useNavigate();
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedOptions, setSelectedOptions] = useState(Array(questions.length).fill(null));
   const [showResults, setShowResults] = useState(false);
+  const [error, setError] = useState("");
 
   const handleOptionClick = (value) => {
     const updated = [...selectedOptions];
@@ -134,11 +137,24 @@ const QuizPage = () => {
   };
 
   const checkAnswers = () => {
-    setShowResults(true);
+    if (selectedOptions.includes(null)) {
+      setError("Please answer all the questions before checking answers.");
+      setShowResults(false);
+    } else {
+      setError("");
+      setShowResults(true);
+    }
   };
 
   const goToQuestion = (index) => {
     setCurrentQuestion(index);
+  };
+
+  const handleLogout = () => {
+    if (window.confirm('Are you sure you want to logout?')) {
+      localStorage.clear();
+      navigate('/login');
+    }
   };
 
   return (
@@ -146,7 +162,7 @@ const QuizPage = () => {
       <nav className="navbar" style={{ backgroundColor: '#171728' }}>
         <div className='d-flex'>
           <div className="container-fluid d-flex align-items-center gap-4">
-            <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '4px', cursor: 'pointer' }} onClick={handleLogout}>
               <i className="bi bi-box-arrow-right" style={{ fontSize: '1.5rem', color: '#dc3545' }}></i>
               <span className='text-white' style={{ marginLeft: '2px' }}>Logout</span>
             </div>
@@ -215,32 +231,12 @@ const QuizPage = () => {
                 <button
                   className="btn btn-success"
                   onClick={checkAnswers}
-                  disabled={selectedOptions.includes(null)}
                 >
                   Check Answers
                 </button>
               </div>
-              {showResults && (
-                <div className="mt-4">
-                  <h5>Results:</h5>
-                  <ul style={{ listStyle: 'none', padding: 0 }}>
-                    {questions.map((q, idx) => {
-                      const isCorrect = selectedOptions[idx] === q.correct;
-                      return (
-                        <li key={idx} style={{ marginBottom: '8px' }}>
-                          <span style={{ fontWeight: 'bold' }}>Q{idx + 1}:</span> {q.question}
-                          <span style={{ marginLeft: '8px', color: isCorrect ? 'green' : 'red' }}>
-                            {isCorrect ? 'Correct' : 'Wrong'}
-                          </span>
-                          <span style={{ marginLeft: '12px', color: '#0d6efd' }}>
-                            Correct Answer: {q.correct}
-                          </span>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                  <h5 className="mt-3">Score: {questions.filter((q, idx) => selectedOptions[idx] === q.correct).length} / {questions.length}</h5>
-                </div>
+              {error && (
+                <div className="alert alert-danger mt-3">{error}</div>
               )}
             </div>
           </div>
@@ -261,6 +257,28 @@ const QuizPage = () => {
                   </button>
                 ))}
               </div>
+              {showResults && !error && (
+                <div className="mt-4 bg-light text-dark p-3 rounded">
+                  <h5>Results:</h5>
+                  <ul style={{ listStyle: 'none', padding: 0 }}>
+                    {questions.map((q, idx) => {
+                      const isCorrect = selectedOptions[idx] === q.correct;
+                      return (
+                        <li key={idx} style={{ marginBottom: '8px' }}>
+                          <span style={{ fontWeight: 'bold' }}>Q{idx + 1}:</span> {q.question}
+                          <span style={{ marginLeft: '8px', color: isCorrect ? 'green' : 'red' }}>
+                            {isCorrect ? 'Correct' : 'Wrong'}
+                          </span>
+                          <span style={{ marginLeft: '12px', color: '#0d6efd' }}>
+                            Correct Answer: {q.correct}
+                          </span>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                  <h5 className="mt-3">Score: {questions.filter((q, idx) => selectedOptions[idx] === q.correct).length} / {questions.length}</h5>
+                </div>
+              )}
             </div>
           </div>
 
