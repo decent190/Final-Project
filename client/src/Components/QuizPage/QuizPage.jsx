@@ -281,7 +281,11 @@ const QuizPage = () => {
               )}
             </div>
           </div>
-
+           <div>
+            <div className='card mt-5 p-3' style={{ backgroundColor: '#f8f9fa', borderRadius: '8px' }}>
+               <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod necessitatibus tempore atque, doloremque consectetur exercitationem hic non voluptas distinctio a quasi temporibus, sunt labore repellat numquam nobis iure magni amet!</h2>
+            </div>
+           </div>
         </div>
       </div>
     </div>
