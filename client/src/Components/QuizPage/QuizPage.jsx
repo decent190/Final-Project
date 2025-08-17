@@ -158,7 +158,7 @@ const QuizPage = () => {
   };
 
   return (
-  <div style={{ minHeight: '100dvh', overflowY: 'auto' }}>
+  <div style={{ minHeight: '100dvh'}}>
       <nav className="navbar" style={{ backgroundColor: '#171728' }}>
         <div className='d-flex'>
           <div className="container-fluid d-flex align-items-center gap-4">
