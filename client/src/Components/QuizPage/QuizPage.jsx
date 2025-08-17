@@ -158,7 +158,7 @@ const QuizPage = () => {
   };
 
   return (
-  <div style={{ height: '100%' }}>
+  <div >
       <nav className="navbar fixed-top" style={{ backgroundColor: '#171728' }}>
         <div className='d-flex'>
           <div className="container-fluid d-flex align-items-center gap-4">
@@ -258,7 +258,7 @@ const QuizPage = () => {
                 ))}
               </div>
               {showResults && !error && (
-                <div className="mt-4 bg-light text-dark p-3 rounded" style={{ maxHeight: '50vh', overflowY: 'auto' }}>
+                <div className="mt-4 bg-light text-dark p-3 rounded" style={{ maxHeight: '100vh', overflowY: 'auto' }}>
                   <h5>Results:</h5>
                   <ul style={{ listStyle: 'none', padding: 0 }}>
                     {questions.map((q, idx) => {
@@ -281,11 +281,6 @@ const QuizPage = () => {
               )}
             </div>
           </div>
-           <div>
-            <div className='card mt-5 p-3' style={{ backgroundColor: '#f8f9fa', borderRadius: '8px' }}>
-               <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod necessitatibus tempore atque, doloremque consectetur exercitationem hic non voluptas distinctio a quasi temporibus, sunt labore repellat numquam nobis iure magni amet!</h2>
-            </div>
-           </div>
         </div>
       </div>
     </div>
