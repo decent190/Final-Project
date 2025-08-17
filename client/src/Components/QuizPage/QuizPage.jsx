@@ -258,7 +258,7 @@ const QuizPage = () => {
                 ))}
               </div>
               {showResults && !error && (
-                <div className="mt-4 bg-light text-dark p-3 rounded">
+                <div className="mt-4 bg-light text-dark p-3 rounded" style={{ maxHeight: '50vh', overflowY: 'auto' }}>
                   <h5>Results:</h5>
                   <ul style={{ listStyle: 'none', padding: 0 }}>
                     {questions.map((q, idx) => {
