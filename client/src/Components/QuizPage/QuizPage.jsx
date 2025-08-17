@@ -158,8 +158,8 @@ const QuizPage = () => {
   };
 
   return (
-  <div style={{ minHeight: '100dvh'}}>
-      <nav className="navbar" style={{ backgroundColor: '#171728' }}>
+  <div style={{ minHeight: 'auto'}}>
+      <nav className="navbar fixed-top" style={{ backgroundColor: '#171728' }}>
         <div className='d-flex'>
           <div className="container-fluid d-flex align-items-center gap-4">
             <div style={{ display: 'flex', alignItems: 'center', gap: '4px', cursor: 'pointer' }} onClick={handleLogout}>
@@ -174,7 +174,7 @@ const QuizPage = () => {
       </nav>
 
       <div className='container'>
-        <div className="row mx-auto align-items-start">
+        <div className="row mx-auto align-items-start mt-5">
           
           <div className="col-lg-8 col-md-7 col-sm-12 mt-5">
             <div>
