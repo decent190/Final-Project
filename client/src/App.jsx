@@ -10,6 +10,8 @@ import Login from './Components/SigninPage/SigninPage';
 import About from './Components/About/About';
 import Dashboard from './Components/Dashboard/Dashboard';
 import QuizPage from './Components/QuizPage/QuizPage';
+import Lessons from './Components/Lessons/Lessons';
+import Challenge from './Components/Challenge/Challenge';
 
 function App() {
   
@@ -23,6 +25,8 @@ function App() {
     <Route path='/about' element={<About/>}/>
     <Route path='/dashboard' element={<Dashboard/>}/>
     <Route path='/quiz' element={<QuizPage/>}/>
+    <Route path='/lesson' element={<Lessons/>}/>
+    <Route path='/challenge' element ={<Challenge/>}/>
     </Routes>
     </>
   )

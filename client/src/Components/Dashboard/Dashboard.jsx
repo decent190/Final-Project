@@ -35,16 +35,16 @@ const Dashboard = () => {
         <div className="container-fluid">
           <ul className="navbar-nav mb-2 mb-lg-0 d-flex flex-row" style={{ gap: '12px' }}>
             <li className="nav-item">
-              <a className="navbar-brand d-none d-lg-block text-white" href="#">Home</a>
+              <Link to="/dashboard" className="text-white mt-5 fs-5 p-2 text-decoration-none">Home</Link>
             </li>
             <li className="nav-item">
-              <a className="navbar-brand d-none d-lg-block text-white" href="#">Classes</a>
+              <Link to="" className="text-white mt-5 fs-5  p-2 text-decoration-none">Classes</Link>
             </li>
             <li className="nav-item">
-              <a className="navbar-brand d-none d-lg-block text-white" href="#">My Project</a>
+               <Link to="/lesson" className="text-white mt-5 fs-5 p-2 text-decoration-none">Lessons</Link>
             </li>
             <li className="nav-item">
-              <a className="navbar-brand d-none d-lg-block text-white" href="#">Code Editor</a>
+             <Link to="" className="text-white mt-5 fs-5 p-2 text-decoration-none">Code Editor</Link>
             </li>
           </ul>
 
@@ -66,7 +66,7 @@ const Dashboard = () => {
                    <Link to="/quiz" className="nav-link active text-white" href="#">Quiz</Link>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link active text-white" href="#">Challenges</a>
+                  <Link to="/challenge" className="nav-link active text-white" href="#">Challenge</Link>
                 </li>
                 <li className="nav-item">
                   <a className="nav-link active text-white" href="#">Code Editor</a>
@@ -81,7 +81,7 @@ const Dashboard = () => {
       </nav>
 
       <div>
-        <div className='mt-5' style={{ backgroundColor: "gray", height: "15px", border: "none" }}></div>
+        <div className='mt-5' style={{ backgroundColor: "gray", height: "12px", border: "none" }}></div>
 
         <div className="container mt-5">
           <div className="row mx-auto align-items-start">

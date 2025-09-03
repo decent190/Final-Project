@@ -67,7 +67,7 @@ const questions = [
       { label: 'D', value: 'D', text: '<span>' },
       { label: 'E', value: 'E', text: '<h1>' },
     ],
-    correct: 'A',
+    correct: 'B', // changed from A to B
   },
   {
     question: 'Which tag is used to create a table row?',
@@ -78,7 +78,7 @@ const questions = [
       { label: 'D', value: 'D', text: '<table>' },
       { label: 'E', value: 'E', text: '<tbody>' },
     ],
-    correct: 'A',
+    correct: 'C', // changed from A to C
   },
   {
     question: 'Which tag is used to define a cell in a table?',
@@ -89,7 +89,7 @@ const questions = [
       { label: 'D', value: 'D', text: '<table>' },
       { label: 'E', value: 'E', text: '<tbody>' },
     ],
-    correct: 'A',
+    correct: 'D', // changed from A to D
   },
   {
     question: 'Which tag is used to define a table header?',
@@ -100,7 +100,7 @@ const questions = [
       { label: 'D', value: 'D', text: '<table>' },
       { label: 'E', value: 'E', text: '<tbody>' },
     ],
-    correct: 'A',
+    correct: 'B', // changed from A to B
   },
   {
     question: 'Which tag is used to define a table body?',
@@ -111,7 +111,7 @@ const questions = [
       { label: 'D', value: 'D', text: '<table>' },
       { label: 'E', value: 'E', text: '<th>' },
     ],
-    correct: 'A',
+    correct: 'C', // changed from A to C
   },
 ];
 
