@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Player } from "@lottiefiles/react-lottie-player";
 import animationData from '../../assets/animation.png';
 import { useEffect, useState } from 'react';
@@ -14,6 +14,7 @@ import Footer from "../Footer/Footer";
 
 const Dashboard = () => {
   const [userName, setUserName] = useState('');
+  const navigate = useNavigate();
   useEffect(() => {
     const storedName = localStorage.getItem('userName');
     if (storedName) setUserName(storedName);
@@ -27,6 +28,13 @@ const Dashboard = () => {
     "🕒 Time spent today: 45 mins",
     "➡️ Continued: JS Loops",
   ];
+
+  const handleLogout = () => {
+    if (window.confirm('Are you sure you want to logout?')) {
+      localStorage.clear();
+      navigate('/login');
+    }
+  };
 
   return (
     <div>
@@ -69,11 +77,12 @@ const Dashboard = () => {
                   <Link to="/challenge" className="nav-link active text-white" href="#">Challenge</Link>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link active text-white" href="#">Code Editor</a>
-                </li>
-                <li className="nav-item">
                   <a className="nav-link active text-white" href="#">My Progress</a>
                 </li>
+                <li className="nav-item">
+                  <a className="nav-link active text-white" href="#" onClick={handleLogout}>Logout</a>
+                </li>
+                
               </ul>
             </div>
           </div>

@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import imagegal from '../../assets/imagegal.png';
 
 const htmlChallenges = [
   { question: "------ Defines a division or section.", answer: "div" },
@@ -44,6 +46,14 @@ const Challenge = () => {
   const [cssInputs, setCssInputs] = useState(Array(cssChallenges.length).fill(""));
   const [jsInputs, setJsInputs] = useState(Array(jsChallenges.length).fill(""));
   const [showResults, setShowResults] = useState(false);
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    if (window.confirm('Are you sure you want to logout?')) {
+      localStorage.clear();
+      navigate('/login');
+    }
+  };
 
   const handleInput = (setter, idx, value) => {
     setter(inputs => {
@@ -71,87 +81,102 @@ const Challenge = () => {
   };
 
   return (
-    <div className="container py-5">
-      <h2 className="mb-4 text-center">Web Development Challenge</h2>
-      <div className="row g-4">
-        {/* HTML Challenge */}
-        <div className="col-12 col-lg-4">
-          <div className="card h-100 shadow">
-            <div className="card-body">
-              <h3 className="card-title text-primary">HTML Challenge</h3>
-              <ol>
-                {htmlChallenges.map((item, idx) => (
-                  <li key={idx} className="mb-3">
-                    <span style={{ fontWeight: 'bold', color: '#333' }}>{item.question}</span>
-                    <input
-                      type="text"
-                      className="form-control d-inline-block ms-2"
-                      style={{ width: '120px', display: 'inline-block' }}
-                      value={htmlInputs[idx]}
-                      onChange={e => handleInput(setHtmlInputs, idx, e.target.value)}
-                      disabled={showResults}
-                    />
-                    {getResult(htmlInputs[idx], item.answer)}
-                  </li>
-                ))}
-              </ol>
+    <div>
+      <nav className="navbar fixed-top" style={{ backgroundColor: '#171728' }}>
+        <div className='d-flex'>
+          <div className="container-fluid d-flex align-items-center gap-4">
+            <div style={{ display: 'flex', alignItems: 'center', gap: '4px', cursor: 'pointer' }} onClick={handleLogout}>
+              <i className="bi bi-box-arrow-right" style={{ fontSize: '1.5rem', color: '#dc3545' }}></i>
+              <span className='text-white' style={{ marginLeft: '2px' }}>Logout</span>
             </div>
           </div>
         </div>
-        {/* CSS Challenge */}
-        <div className="col-12 col-lg-4">
-          <div className="card h-100 shadow">
-            <div className="card-body">
-              <h3 className="card-title text-success">CSS Challenge</h3>
-              <ol>
-                {cssChallenges.map((item, idx) => (
-                  <li key={idx} className="mb-3">
-                    <span style={{ fontWeight: 'bold', color: '#333' }}>{item.question}</span>
-                    <input
-                      type="text"
-                      className="form-control d-inline-block ms-2"
-                      style={{ width: '120px', display: 'inline-block' }}
-                      value={cssInputs[idx]}
-                      onChange={e => handleInput(setCssInputs, idx, e.target.value)}
-                      disabled={showResults}
-                    />
-                    {getResult(cssInputs[idx], item.answer)}
-                  </li>
-                ))}
-              </ol>
+        <div>
+          <img src={imagegal} alt="" className='img-fluid me-5' style={{ width: '40px', height: '40px', objectFit: 'cover' }} />
+        </div>
+      </nav>
+      <div className="container py-5" style={{ paddingTop: '80px' }}>
+        <h2 className="mb-4 text-center">Web Development Challenge</h2>
+        <div className="row g-4">
+          {/* HTML Challenge */}
+          <div className="col-12 col-lg-4">
+            <div className="card h-100 shadow">
+              <div className="card-body">
+                <h3 className="card-title text-primary">HTML Challenge</h3>
+                <ol>
+                  {htmlChallenges.map((item, idx) => (
+                    <li key={idx} className="mb-3">
+                      <span style={{ fontWeight: 'bold', color: '#333' }}>{item.question}</span>
+                      <input
+                        type="text"
+                        className="form-control d-inline-block ms-2"
+                        style={{ width: '120px', display: 'inline-block' }}
+                        value={htmlInputs[idx]}
+                        onChange={e => handleInput(setHtmlInputs, idx, e.target.value)}
+                        disabled={showResults}
+                      />
+                      {getResult(htmlInputs[idx], item.answer)}
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            </div>
+          </div>
+          {/* CSS Challenge */}
+          <div className="col-12 col-lg-4">
+            <div className="card h-100 shadow">
+              <div className="card-body">
+                <h3 className="card-title text-success">CSS Challenge</h3>
+                <ol>
+                  {cssChallenges.map((item, idx) => (
+                    <li key={idx} className="mb-3">
+                      <span style={{ fontWeight: 'bold', color: '#333' }}>{item.question}</span>
+                      <input
+                        type="text"
+                        className="form-control d-inline-block ms-2"
+                        style={{ width: '120px', display: 'inline-block' }}
+                        value={cssInputs[idx]}
+                        onChange={e => handleInput(setCssInputs, idx, e.target.value)}
+                        disabled={showResults}
+                      />
+                      {getResult(cssInputs[idx], item.answer)}
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            </div>
+          </div>
+          {/* JS Challenge */}
+          <div className="col-12 col-lg-4">
+            <div className="card h-100 shadow">
+              <div className="card-body">
+                <h3 className="card-title text-warning">JavaScript Challenge</h3>
+                <ol>
+                  {jsChallenges.map((item, idx) => (
+                    <li key={idx} className="mb-3">
+                      <span style={{ fontWeight: 'bold', color: '#333' }}>{item.question}</span>
+                      <input
+                        type="text"
+                        className="form-control d-inline-block ms-2"
+                        style={{ width: '120px', display: 'inline-block' }}
+                        value={jsInputs[idx]}
+                        onChange={e => handleInput(setJsInputs, idx, e.target.value)}
+                        disabled={showResults}
+                      />
+                      {getResult(jsInputs[idx], item.answer)}
+                    </li>
+                  ))}
+                </ol>
+              </div>
             </div>
           </div>
         </div>
-        {/* JS Challenge */}
-        <div className="col-12 col-lg-4">
-          <div className="card h-100 shadow">
-            <div className="card-body">
-              <h3 className="card-title text-warning">JavaScript Challenge</h3>
-              <ol>
-                {jsChallenges.map((item, idx) => (
-                  <li key={idx} className="mb-3">
-                    <span style={{ fontWeight: 'bold', color: '#333' }}>{item.question}</span>
-                    <input
-                      type="text"
-                      className="form-control d-inline-block ms-2"
-                      style={{ width: '120px', display: 'inline-block' }}
-                      value={jsInputs[idx]}
-                      onChange={e => handleInput(setJsInputs, idx, e.target.value)}
-                      disabled={showResults}
-                    />
-                    {getResult(jsInputs[idx], item.answer)}
-                  </li>
-                ))}
-              </ol>
-            </div>
-          </div>
+        <div className="text-center mt-5">
+          <button className="btn btn-success btn-lg" onClick={checkAnswers} disabled={showResults}>Check Answers</button>
+          {showResults && (
+            <div className="mt-3 alert alert-info">Green ✔ means correct, Red ✖ means wrong. Refresh to try again!</div>
+          )}
         </div>
-      </div>
-      <div className="text-center mt-5">
-        <button className="btn btn-success btn-lg" onClick={checkAnswers} disabled={showResults}>Check Answers</button>
-        {showResults && (
-          <div className="mt-3 alert alert-info">Green ✔ means correct, Red ✖ means wrong. Refresh to try again!</div>
-        )}
       </div>
     </div>
   );
