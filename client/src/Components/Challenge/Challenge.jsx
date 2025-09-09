@@ -174,7 +174,7 @@ const Challenge = () => {
         <div className="text-center mt-5">
           <button className="btn btn-success btn-lg" onClick={checkAnswers} disabled={showResults}>Check Answers</button>
           {showResults && (
-            <div className="mt-3 alert alert-info">Green ✔ means correct, Red ✖ means wrong. Refresh to try again!</div>
+            <div className="mt-3 alert alert-info"> Refresh to try again!</div>
           )}
         </div>
       </div>
