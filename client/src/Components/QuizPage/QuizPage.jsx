@@ -67,7 +67,7 @@ const questions = [
       { label: 'D', value: 'D', text: '<span>' },
       { label: 'E', value: 'E', text: '<h1>' },
     ],
-    correct: 'B', // changed from A to B
+    correct: 'B', 
   },
   {
     question: 'Which tag is used to create a table row?',
@@ -78,7 +78,7 @@ const questions = [
       { label: 'D', value: 'D', text: '<table>' },
       { label: 'E', value: 'E', text: '<tbody>' },
     ],
-    correct: 'C', // changed from A to C
+    correct: 'C', 
   },
   {
     question: 'Which tag is used to define a cell in a table?',
@@ -89,7 +89,7 @@ const questions = [
       { label: 'D', value: 'D', text: '<table>' },
       { label: 'E', value: 'E', text: '<tbody>' },
     ],
-    correct: 'D', // changed from A to D
+    correct: 'D', 
   },
   {
     question: 'Which tag is used to define a table header?',
@@ -100,7 +100,7 @@ const questions = [
       { label: 'D', value: 'D', text: '<table>' },
       { label: 'E', value: 'E', text: '<tbody>' },
     ],
-    correct: 'B', // changed from A to B
+    correct: 'B', 
   },
   {
     question: 'Which tag is used to define a table body?',
@@ -111,7 +111,7 @@ const questions = [
       { label: 'D', value: 'D', text: '<table>' },
       { label: 'E', value: 'E', text: '<th>' },
     ],
-    correct: 'C', // changed from A to C
+    correct: 'C', 
   },
 ];
 
@@ -137,10 +137,7 @@ const QuizPage = () => {
   };
 
   const checkAnswers = () => {
-    if (selectedOptions.includes(null)) {
-      setError("Please answer all the questions before checking answers.");
-      setShowResults(false);
-    } else {
+    if (window.confirm('Are you sure you want to check your answers?')) {
       setError("");
       setShowResults(true);
     }
@@ -235,9 +232,6 @@ const QuizPage = () => {
                   Check Answers
                 </button>
               </div>
-              {error && (
-                <div className="alert alert-danger mt-3">{error}</div>
-              )}
             </div>
           </div>
 
@@ -257,7 +251,7 @@ const QuizPage = () => {
                   </button>
                 ))}
               </div>
-              {showResults && !error && (
+              {showResults && (
                 <div className="mt-4 bg-light text-dark p-3 rounded" style={{ maxHeight: '100vh', overflowY: 'auto' }}>
                   <h5>Results:</h5>
                   <ul style={{ listStyle: 'none', padding: 0 }}>

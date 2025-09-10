@@ -69,11 +69,11 @@ const Challenge = () => {
 
   const getResult = (input, answer) => {
     if (!showResults) return null;
-    // For correct answers, show green ✔
+    
     if (input.trim().toLowerCase() === answer.trim().toLowerCase()) {
       return <span style={{ color: 'green', marginLeft: '8px' }}>✔</span>;
     }
-    // For wrong answers, show red ✖
+    
     if (input.trim() !== "") {
       return <span style={{ color: 'red', marginLeft: '8px' }}>✖</span>;
     }
@@ -174,7 +174,9 @@ const Challenge = () => {
         <div className="text-center mt-5">
           <button className="btn btn-success btn-lg" onClick={checkAnswers} disabled={showResults}>Check Answers</button>
           {showResults && (
-            <div className="mt-3 alert alert-info"> Refresh to try again!</div>
+            <button className="btn btn-info mt-1 ms-3" onClick={() => window.location.reload()}>
+               Click to Try Again👍
+            </button>
           )}
         </div>
       </div>

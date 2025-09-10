@@ -26,7 +26,7 @@ const SigninPage = () => {
         password,
       });
       if (response.status === 200) {
-        // Save user name to localStorage if available
+       
         const user = response.data?.user || response.data;
         if (user && user.name) {
           localStorage.setItem('userName', user.name);
