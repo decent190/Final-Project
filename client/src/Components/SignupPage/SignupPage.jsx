@@ -9,34 +9,34 @@ const SignupPage = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [success, setSuccess] = useState(''); 
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError('');
-    setSuccess('');
+  setError('');
+  setSuccess('');
 
 
     if (!usernameOrEmail.trim() || !password.trim()) {
       setError('Please provide an email or username and a password');
+      setLoading(false);
       return;
     }
     if (password.length < 6) {
       setError('Password must be at least 6 characters long');
+      setLoading(false);
       return;
     }
+    setLoading(true);
 
     try {
-       
-
       const response = await axios.post('https://final-project-1-f4p8.onrender.com/api/auth/signup', {
-        
         name,
         usernameOrEmail,
         password,
       });
       if (response.status === 201) {
-        
         const user = response.data?.user || response.data;
         if (user && user.name) {
           localStorage.setItem('userName', user.name);
@@ -47,6 +47,8 @@ const SignupPage = () => {
     } catch (err) {
       console.error('Error from backend:', err.response?.data);
       setError(err.response?.data?.message || 'Signup failed');
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -91,7 +93,9 @@ const SignupPage = () => {
                 </div>
                 {error && <p className="text-danger">{error}</p>}
                 {success && <p className="text-success">{success}</p>}
-                <button type="submit" className="btn btn-dark w-100 mt-4">Register</button>
+                <button type="submit" className="btn btn-dark w-100 mt-4" disabled={loading}>
+                  {loading ? 'Loading...' : 'Register'}
+                </button>
                 <div className='mt-3'>
                   <p>Already have an account? <Link to="/login">Login</Link></p>
                 </div>

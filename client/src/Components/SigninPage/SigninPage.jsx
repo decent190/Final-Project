@@ -7,26 +7,27 @@ const SigninPage = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [success, setSuccess] = useState(''); 
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError('');
-    setSuccess('');
+  setError('');
+  setSuccess('');
 
     if (!usernameOrEmail.trim() || !password.trim()) {
       setError('Please provide an email or username and a password');
+      setLoading(false);
       return;
     }
+    setLoading(true);
 
     try {
       const response = await axios.post('https://final-project-1-f4p8.onrender.com/api/auth/signin', {
-        
         usernameOrEmail,
         password,
       });
       if (response.status === 200) {
-       
         const user = response.data?.user || response.data;
         if (user && user.name) {
           localStorage.setItem('userName', user.name);
@@ -37,6 +38,8 @@ const SigninPage = () => {
     } catch (err) {
       console.error('Error from backend:', err.response?.data);
       setError(err.response?.data?.message || 'Login failed');
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -65,7 +68,9 @@ return (
                 </div>
                 {error && <p className="text-danger">{error}</p>}
                 {success && <p className="text-success">{success}</p>}
-                <button type="submit" className="btn btn-dark w-100 mt-3">Login</button>
+                <button type="submit" className="btn btn-dark w-100 mt-3" disabled={loading}>
+                  {loading ? 'Loading...' : 'Login'}
+                </button>
                 <div className='mt-3 text-center'>
                     <p>Don’t have an account? <Link to="/signup">Register</Link></p>
                 </div>
