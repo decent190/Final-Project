@@ -94,7 +94,7 @@ const Dashboard = () => {
 
         <div className="container mt-5">
           <div className="row mx-auto align-items-start">
-            {/* Left Side */}
+            
             <div className="col-lg-6 col-md-6 col-sm-12">
             <span>
                 <img src={imagegal} alt="Imagegal" className="img-fluid" />
@@ -146,19 +146,19 @@ const Dashboard = () => {
                     <div className='col-lg-4 col-md-4 col-sm-12'>
                       <div className='card mt-5 pb-4' style={{ backgroundColor: "#171728", borderRadius: "10px" }}>
                         <img src={image6} alt="Image 6" className="img-fluid h-50 w-50 d-block mx-auto mt-3" />
-                        <h5 className='text-center text-white mt-4'>Learn HTML</h5>
+                        <h5 className='text-center text-white mt-4'><Link to="/lesson" className=" text-white text-decoration-none " href="#"> Learn HTML</Link></h5>
                       </div>
                     </div>
                     <div className='col-lg-4 col-md-4 col-sm-12'>
                       <div className='card mt-5 pb-4' style={{ backgroundColor: "#171728", borderRadius: "10px" }}>
                         <img src={image4} alt="Image 4" className="img-fluid h-50 w-50 d-block mx-auto mt-3" />
-                        <h5 className='text-center text-white mt-4'>Learn CSS</h5>
+                        <h5 className='text-center text-white mt-4'><Link to="/lesson" className=" text-white text-decoration-none" href="#"> Learn CSS</Link></h5>
                       </div>
                     </div>
                     <div className='col-lg-4 col-md-4 col-sm-12'>
                       <div className='card mt-5 pb-2' style={{ backgroundColor: "#171728", borderRadius: "10px" }}>
                         <img src={image5} alt="Image 5" className="img-fluid h-50 w-50 d-block mx-auto mt-3" />
-                        <h5 className='text-center text-white mt-3'>Learn JAVASCRIPT</h5>
+                        <h5 className='text-center text-white mt-3'><Link to="/lesson" className=" text-white text-decoration-none" href="#"> Learn JAVASCRIPT</Link></h5>
                       </div>
                     </div>
                   </div>
