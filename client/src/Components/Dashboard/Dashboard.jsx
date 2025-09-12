@@ -45,9 +45,7 @@ const Dashboard = () => {
             <li className="nav-item">
               <Link to="/dashboard" className="text-white mt-5 fs-5 p-2 text-decoration-none">Home</Link>
             </li>
-            <li className="nav-item">
-              <Link to="" className="text-white mt-5 fs-5  p-2 text-decoration-none">Classes</Link>
-            </li>
+            
             <li className="nav-item">
                <Link to="/lesson" className="text-white mt-5 fs-5 p-2 text-decoration-none">Lessons</Link>
             </li>
